@@ -19,9 +19,8 @@ class TestUrbanRoutes:
         capabilities = DesiredCapabilities.CHROME
         capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
         cls.driver = webdriver.Chrome()
-        cls.driver = browser_call
+        #cls.driver = browser_call
         cls.routes_page = UrbanRoutesPage(cls.driver)
-        #cls.loc = localizadores.LUrbanRoutesPage
         cls.driver.get(data.urban_routes_url)
 
     def test_set_route(self):

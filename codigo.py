@@ -7,6 +7,7 @@ def retrieve_phone_code(driver) -> str:
     import json
     import time
     from selenium.common import WebDriverException
+    #from browser_setup import open_browser
     code = None
     for i in range(10):
         try:
