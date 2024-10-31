@@ -1,3 +1,4 @@
+'''
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -24,3 +25,4 @@ def open_browser():
 
     # Navega a tu destino
     return driver
+'''

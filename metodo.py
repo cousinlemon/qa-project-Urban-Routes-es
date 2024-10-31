@@ -94,7 +94,7 @@ class UrbanRoutesPage:
 
     # clic en el boton cerrar de la ventana metodo de pago
     def click_button_close_window_payment_method(self):
-        WebDriverWait(self.driver, 20).until(expected_conditions.presence_of_element_located(localizadores.LUrbanRoutesPage.button_close_window_payment_method))
+        WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located(localizadores.LUrbanRoutesPage.button_close_window_payment_method))
         self.driver.find_element(*localizadores.LUrbanRoutesPage.button_close_window_payment_method).click()
 
     def check_close_button_is_enabled(self):
@@ -109,7 +109,7 @@ class UrbanRoutesPage:
         WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(localizadores.LUrbanRoutesPage.message_for_driver))
         # escribir mensaje para el coductor
         self.driver.find_element(*localizadores.LUrbanRoutesPage.write_message).send_keys(data.message_for_driver)
-        time.sleep(3)
+        time.sleep(2)
 
     def verify_message(self):
         return self.driver.find_element(*localizadores.LUrbanRoutesPage.write_message).get_property('value')
@@ -118,7 +118,7 @@ class UrbanRoutesPage:
     def click_slider_round_button(self):
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(localizadores.LUrbanRoutesPage.slider_round_button))
         self.driver.find_element(*localizadores.LUrbanRoutesPage.slider_round_button).click()
-        time.sleep(3)
+        time.sleep(2)
 
     def check_slider_button_is_enabled(self):
         return self.driver.find_element(*localizadores.LUrbanRoutesPage.slider_round_button).is_enabled()

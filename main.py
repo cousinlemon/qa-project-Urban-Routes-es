@@ -6,8 +6,8 @@ import data
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 
-from browser_setup import open_browser
-browser_call = open_browser()
+# from browser_setup import open_browser
+# browser_call = open_browser()
 
 
 class TestUrbanRoutes:
@@ -19,7 +19,7 @@ class TestUrbanRoutes:
         capabilities = DesiredCapabilities.CHROME
         capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
         cls.driver = webdriver.Chrome()
-        #cls.driver = browser_call
+        # cls.driver = browser_call
         cls.routes_page = UrbanRoutesPage(cls.driver)
         cls.driver.get(data.urban_routes_url)
 
