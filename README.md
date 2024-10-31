@@ -75,11 +75,11 @@ Para correr estas pruebas usamos Chrome
 - test_boton_final_pedir_un_taxi.
 
 ---
-### ARCHIVOS DE PROYECTO
+###  ARCHIVOS DE PROYECTO
 - .gitignore
 - README.md
 - data.py
-- codigp.py
+- codigo.py
 - localizadores.py
 - metodo.py
 - main.py
