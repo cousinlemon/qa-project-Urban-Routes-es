@@ -38,7 +38,7 @@ Este conjunto de pruebas garantiza la interacción correcta de todos los element
 - .gitignore
 - README.md
 - data.py
-- codigp.py
+- helper_sms_code.py
 - localizadores.py
 - metodo.py
 - main.py

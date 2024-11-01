@@ -5,7 +5,6 @@ from metodo import UrbanRoutesPage
 import data
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
-
 # NOTE TO MY SELF: do not forget to comment the browser call before sending to review
 # from browser_setup import open_browser
 # browser_call = open_browser()

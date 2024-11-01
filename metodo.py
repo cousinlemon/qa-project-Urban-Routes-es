@@ -112,6 +112,7 @@ class UrbanRoutesPage:
             expected_conditions.visibility_of_element_located((By.CLASS_NAME, "pp-value-text"))
         )
         return element.text
+
     # verify_card_number_written
     def verify_card_number_written_before_added(self):
         # campo card input

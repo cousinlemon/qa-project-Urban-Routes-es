@@ -49,4 +49,4 @@ class LUrbanRoutesPage:
     order_taxi_button = (By.CLASS_NAME, "smart-button-main")
     # waiting_time = (By.CLASS_NAME, "order-header-title")
     waiting_time = (By.CLASS_NAME, "order-header-time")
-    driver_asigned =(By.CLASS_NAME, "order-number")
+    driver_asigned = (By.CLASS_NAME, "order-number")
