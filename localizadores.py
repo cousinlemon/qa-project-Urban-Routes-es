@@ -10,7 +10,7 @@ class LUrbanRoutesPage:
     fare_comfort = (By.XPATH, "//*[@id='root']/div/div[3]/div[3]/div[2]/div[1]/div[5]/div[1]/img")
     label = (By.XPATH, "//*[@id='root']/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[1]")
 
-    #llenar el número de teléfono.
+    # llenar el número de teléfono.
     phone_number_button = (By.CLASS_NAME,"np-text")
     number_field = (By.CSS_SELECTOR,'#phone')
     button_next = (By.XPATH, "//button[@type='submit'][@class='button full']")
@@ -27,7 +27,7 @@ class LUrbanRoutesPage:
     button_close_window_payment_method = (By.XPATH, "//div[@class='section active' and .//div[text()='Método de pago']]//button[@class='close-button section-close']")
     verified_card = (By.CLASS_NAME, "pp-value-text")
 
-    #Mensaje para el conductor
+    # Mensaje para el conductor
     message_for_driver = (By.XPATH, "//label[@for='comment' and contains(text(), 'Mensaje para el conductor...')]")
     write_message = (By.XPATH, "//input[@placeholder='Traiga un aperitivo']")
     confirm_message = (By.XPATH, "//input[@placeholder='Traiga un aperitivo']")
