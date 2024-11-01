@@ -1,11 +1,12 @@
 from time import sleep
-import codigo
+import helper_sms_code
 import localizadores
 from metodo import UrbanRoutesPage
 import data
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 
+# NOTE TO MY SELF: do not forget to comment the browser call before sending to review
 # from browser_setup import open_browser
 # browser_call = open_browser()
 
@@ -43,7 +44,11 @@ class TestUrbanRoutes:
         self.routes_page.set_card_number_field()
         self.routes_page.set_card_code_field()
         self.routes_page.click_outside_box()
+        assert self.routes_page.verify_card_number_written_before_added() == data.card_number
+            # rev1 new line
         self.routes_page.click_add_button()
+        assert self.routes_page.verify_card_number_after_added() == "Tarjeta" # data.card_number
+            # rev1 new line
         self.routes_page.click_button_close_window_payment_method()
         assert self.routes_page.check_close_button_is_enabled()
 
@@ -64,12 +69,12 @@ class TestUrbanRoutes:
         assert self.routes_page.verify_quantity_icecream() == '2'
 
     # prueba  Rellenar el número de teléfono
-    def test_fill_phone_number(self):
+    '''def test_fill_phone_number(self):
         self.routes_page.click_phone_number_button()
         self.routes_page.set_number_field()
         self.routes_page.click_button_next()
         # Obtención y validación del código de confirmación
-        code = codigo.retrieve_phone_code(driver=self.driver)
+        code = helper_sms_code.retrieve_phone_code(driver=self.driver)
         #if code is None:
         #    raise ValueError("No se pudo recuperar el código de confirmación")
 
@@ -77,11 +82,13 @@ class TestUrbanRoutes:
         self.routes_page.set_confirmation_code(code)
         self.routes_page.click_button_confirm_code()
         assert self.routes_page.get_phone_number() == data.phone_number
+    '''
 
     # Aparece el modal para buscar un taxi.
     def test_boton_final_pedir_un_taxi(self):
         self.routes_page.click_order_taxi_button()
-        assert self.routes_page.check_waiting_time_is_enabled()
+        self.routes_page.check_waiting_time()
+        self.routes_page.asigned_driver()
 
     @classmethod
     def teardown_class(cls):

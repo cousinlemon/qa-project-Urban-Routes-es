@@ -1,4 +1,5 @@
-'''
+# NOTE TO MY SELF : dont forget to comment all before sending review
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -25,4 +26,3 @@ def open_browser():
 
     # Navega a tu destino
     return driver
-'''
