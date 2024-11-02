@@ -68,7 +68,7 @@ class TestUrbanRoutes:
         assert self.routes_page.verify_quantity_icecream() == '2'
 
     # prueba  Rellenar el número de teléfono
-    '''def test_fill_phone_number(self):
+    def test_fill_phone_number(self):
         self.routes_page.click_phone_number_button()
         self.routes_page.set_number_field()
         self.routes_page.click_button_next()
@@ -81,7 +81,7 @@ class TestUrbanRoutes:
         self.routes_page.set_confirmation_code(code)
         self.routes_page.click_button_confirm_code()
         assert self.routes_page.get_phone_number() == data.phone_number
-    '''
+
 
     # Aparece el modal para buscar un taxi.
     def test_boton_final_pedir_un_taxi(self):
