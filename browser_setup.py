@@ -1,4 +1,4 @@
-# NOTE TO MY SELF : dont forget to comment all before sending review
+'''# NOTE TO MY SELF : dont forget to comment all before sending review
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -25,4 +25,5 @@ def open_browser():
 
 
     # Navega a tu destino
-    return driver
+    return driver'''
+
