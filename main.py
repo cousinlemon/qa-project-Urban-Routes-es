@@ -1,20 +1,20 @@
-from time import sleep
 import helper_sms_code
 from UrbanRoutesPage import UrbanRoutesPage
 import data
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 
-''' NOTE TO MY SELF: optimization review checklist
+''' NOTE TO SELF: optimization review checklist - Do NOT DELETE
+browser setup override to be able to wrok the proyect
+
 NOW -     place      - review config
-on - helper_sms_code.py : should be on : active
-off - browser_setup.py : shuould be off : inactive as comment
-off - main.py - browser_call at imports : shpuld be off : comment (2 lines)
+off - browser_setup.py : should be off : inactive as comment
+off - main.py - browser_call at imports : should be off : comment (2 lines)
 on - main.py    cls.driver : point to webdriver should be on (and browser call off)
 on - main.py - function phone and code : should be on '''
 
-'''from browser_setup import open_browser
-browser_call = open_browser()'''
+# from browser_setup import open_browser
+# browser_call = open_browser()
 
 
 class TestUrbanRoutes:
@@ -26,7 +26,7 @@ class TestUrbanRoutes:
         capabilities = DesiredCapabilities.CHROME
         capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
         cls.driver = webdriver.Chrome()
-        #  cls.driver = browser_call
+        # cls.driver = browser_call
         cls.routes_page = UrbanRoutesPage(cls.driver)
         cls.driver.get(data.urban_routes_url)
 
@@ -85,22 +85,24 @@ class TestUrbanRoutes:
         self.routes_page.click_button_confirm_code()
         assert self.routes_page.get_phone_number() == data.phone_number
 
-
     # Aparece el modal para buscar un taxi.
     def test_boton_final_pedir_un_taxi(self):
         self.routes_page.click_order_taxi_button()
+
+        self.routes_page.modal_order_taxi()  # rev3  : verificar el modal driver
+        assert self.routes_page.modal_order_taxi()  # rev3 : verificar el modal driver
+
         self.routes_page.check_waiting_time()
         assert self.routes_page.check_waiting_time()
 
     # NEW : test to verify driver assignation
     def test_view_driver_assignation(self):
         self.routes_page.asigned_driver()
-        assert self.routes_page.driver_asignation_is_display()  # rev2 : verificar el modal driver
+        assert self.routes_page.driver_asignation_is_display()
 
         self.routes_page.driver_details()  # new : open order details
         assert self.routes_page.driver_details_box()
 
     @classmethod
     def teardown_class(cls):
-        sleep(4)
         cls.driver.quit()
