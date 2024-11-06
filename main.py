@@ -4,8 +4,11 @@ import data
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 
-''' NOTE TO SELF: optimization review checklist - Do NOT DELETE
-browser setup override to be able to wrok the proyect
+''' NOTE FOR: optimization review checklist - Do NOT DELETE
+browser setup override to work in the project : 
+the webdriver doesnt run properly in the working environment, 
+not even with Hector code solution, so we design extra code for browser_setup and browser_call
+to be able to work the project.
 
 NOW -     place      - review config
 off - browser_setup.py : should be off : inactive as comment
@@ -50,10 +53,10 @@ class TestUrbanRoutes:
         self.routes_page.set_card_number_field()
         self.routes_page.set_card_code_field()
         self.routes_page.click_outside_box()
-        assert self.routes_page.verify_card_number_written_before_added() == data.card_number  #  verifu de card number before adding
-        self.routes_page.click_add_button()  # agrega la tarjeta y cierra el modal
+        assert self.routes_page.verify_card_number_written_before_added() == data.card_number
+        self.routes_page.click_add_button()
         self.routes_page.click_button_close_window_payment_method()
-        assert self.routes_page.verify_card_number_after_added() == "Tarjeta"  #  rev2 con este campo solo e sposible ver el tipo de pago, no el numero de tarjeta  # el campo pp-value-text contiene la palabra Tarjeta : revision en colerning con Yuliana
+        assert self.routes_page.verify_card_number_after_added() == "Tarjeta"
         assert self.routes_page.check_close_button_is_enabled()
 
     # prueba escribir un mensaje para el controlador
